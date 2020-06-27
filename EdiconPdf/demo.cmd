@@ -12,4 +12,9 @@ EdiconPdf.exe -x 0120010001.pdf 0120010001_extracted.isdoc
 @pause
 EdiconPdf.exe -x 0120010001.pdf
 
+@echo.
+@echo Pokus o ziskani dat z pdf bez prilohy
+@pause
+EdiconPdf.exe -x 0120010001_orig.pdf
+
 @pause

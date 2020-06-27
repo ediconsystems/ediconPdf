@@ -13,23 +13,35 @@ namespace EdiconPdf
                 if (args[0] == "-c")
                 {
                     CreateEdiconPdf(args[1], args[2], args[3]);
+                    Console.WriteLine("File " + args[3] + " created");
                 }
 
                 else if (args[0] == "-x")
                 {
-                    ExtractEdiconPfd(args[1], args.Length > 2 ? args[2] : null);
+                    if (args.Length > 2)
+                    {
+                        ExtractEdiconPfd(args[1], args[2]);
+                        Console.WriteLine("Data extracted to file " + args[2]);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Extracted data:");
+                        ExtractEdiconPfd(args[1], null);
+                    }
                 }
                 else
                 {
                     Usage();
-                    Console.ReadLine();
                 }
+            }
+            catch (EdiconException ex)
+            {
+                Console.WriteLine(ex.Message);
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
                 Usage();
-                Console.ReadLine();
             }
         }
 
@@ -58,7 +70,6 @@ namespace EdiconPdf
             //
             EdiconPdf.EmbedEdiconData(sourcePdfFilename, ediconXml, outputEdiconPdfFilename);
             //
-            Console.WriteLine("File " + outputEdiconPdfFilename + " created");
         }
 
         static  void Usage()

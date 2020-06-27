@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EdiconException.cs" />
     <Compile Include="EdiconXml.cs" />
     <Compile Include="EdiconPdf.cs" />
     <Compile Include="Program.cs" />

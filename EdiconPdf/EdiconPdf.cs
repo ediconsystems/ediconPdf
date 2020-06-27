@@ -85,8 +85,8 @@ namespace EdiconPdf
             }
             catch (Exception ex)
             {
-                Console.WriteLine("ExtractEdiconData error: " + ex.Message);
-                throw;
+                //Console.WriteLine("ExtractEdiconData error: " + ex.Message);
+                throw new EdiconException("Soubor neobsahuje platnou přílohu Edicon");
             }
             finally
             {
